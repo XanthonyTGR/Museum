@@ -157,3 +157,11 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+import dj_database_url
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=500,
+        conn_health_checks=True,
+    )
