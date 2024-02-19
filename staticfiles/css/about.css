@@ -1,0 +1,95 @@
+.navbar{
+    width: 100%;  
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo{
+       width: 200px;
+       cursor: pointer;
+  }
+  .navbar ul li{
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+  }
+  .navbar ul li a{
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+  }
+  .navbar ul li::after{
+      content:'' ;
+      height: 3px;
+      width: 100%;
+      background:#c9b8a9;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      transition: 1s;
+  }
+  .navbar ul li:hover::after{
+      width: 100%;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  strong {
+    color: #000;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* Two rows, each taking up 50% of the height */
+    height: 100vh; /* Set the container to full height of the viewport */
+    max-width: 100%; /* Ensure the grid doesn't exceed the width of the viewport */
+    overflow: hidden; /* Hide any content that exceeds the container */
+    background-size:cover;
+    background-position: center;
+}
+
+.top {
+    overflow: hidden; /* Ensure the image doesn't overflow */
+}
+
+.top img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%; /* Ensure the image doesn't exceed its intrinsic width */
+    max-height: 50vh; /* Ensure the image doesn't exceed its intrinsic height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.bottom {
+    background-color: antiquewhite;
+    padding: 20px;
+    text-align: center;
+    object-fit: cover;
+}
+
+.bottom h1 {
+    color: #333;
+    margin-bottom: 10px;
+}

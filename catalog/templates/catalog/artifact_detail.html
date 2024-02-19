@@ -1,0 +1,19 @@
+{% extends 'explore_generic.html' %}
+
+{% block content %}
+<section id="artifactDetails">
+    <img src="{{ artifact.image.url }}" alt="{{ artifact.title }}">
+    <h2>{{ artifact.title }}</h2>
+    <p>Museum: <a href="{% url 'museum_detail' artifact.museum.id %}">{{ artifact.museum.name }}</a></p>
+    <p>Description: {{ artifact.description }}</p>
+    <button onclick="window.location.href = '{% url "explore" %}'">Go Back</button>
+</section>
+{% endblock %}
+
+{% block additional_script %}
+<script>
+    document.getElementById('goBackButton').addEventListener('click', function() {
+        window.location.href = "{% url 'explore' %}";
+    });
+</script>
+{% endblock %}

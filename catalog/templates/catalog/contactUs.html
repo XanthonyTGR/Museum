@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About us</a></li>
+            <li><a href="{% url 'explore' %}">Gallery</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </div>
+
+    <div class="grid-container">
+        <div class="top">
+            <!-- Image in the top part -->
+            <div class="blur-image-container">
+                <img src="{% static 'images/contact.jpg' %}" alt="Blurred Image" class="blur-image">
+                <div class="text-overlay">
+                    <h1>We are an accessible platform, one click away!</h1>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <!-- Contact information in the bottom part -->
+            <h2>Contact Information</h2>
+            <p>Email: example@example.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Main Street, City, Country</p>
+        </div>
+    </div>
+</body>
+
+</html>

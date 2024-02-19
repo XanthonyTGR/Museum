@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Inventory Portal</title>
+    <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+        <div class="navbar">
+            <img src="logo.png" class="logo">
+            <ul>
+                <li><a href="aboutUs.html">About us</a></li>
+                <li><a href="contactUs.html">Contact us</a></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </div>
+    <h1>Museum Inventory Portal</h1>
+
+    <!-- Search Bar -->
+    <input type="text" id="searchInput" placeholder="Search artifacts...">
+    <button onclick="searchArtifacts()">Search</button>
+
+    <!-- Add New Artifact -->
+    <button onclick="openAddArtifactModal()">Add New Artifact</button>
+    <button onclick="sortArtifactsAscending()">Sort Ascending</button>
+    <button onclick="sortArtifactsDescending()">Sort Descending</button>
+
+    <!-- Table to Display Artifacts -->
+<table id="artifactsTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+</table>
+
+    <!-- Modal for Adding New Artifact -->
+<div id="addArtifactModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddArtifactModal()">&times;</span>
+        <h2>Add New Artifact</h2>
+        <!-- Form to add new artifact details -->
+        <form id="addArtifactForm" enctype="multipart/form-data">
+            <label for="artifactName">Name:</label>
+            <input type="text" id="artifactName" name="artifactName" required><br>
+
+            <label for="artistName">Artist:</label>
+            <input type="text" id="artistName" name="artistName" required><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required><br>
+
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*"><br>
+
+            <button type="submit">Add Artifact</button>
+        </form>
+    </div>
+</div>
+<!-- Edit Modal -->
+<div id="editArtifactModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditArtifactModal()">&times;</span>
+        <h2>Edit Artifact</h2>
+        <form id="editArtifactForm">
+            <input type="hidden" id="editArtifactIndex">
+            <label for="editArtifactName">Name:</label>
+            <input type="text" id="editArtifactName" required><br>
+
+            <label for="editArtistName">Artist:</label>
+            <input type="text" id="editArtistName" required><br>
+
+            <label for="editDescription">Description:</label><br>
+            <textarea id="editDescription" rows="4" required></textarea><br>
+
+            <label for="editCategory">Category:</label>
+            <input type="text" id="editCategory" required><br>
+
+            <button type="submit">Update Artifact</button>
+        </form>
+    </div>
+</div>
+
+<p id="searchResults"></p>
+
+    <!-- Script for managing functionalities -->
+    <script src="script.js"></script>
+</body>
+</html>

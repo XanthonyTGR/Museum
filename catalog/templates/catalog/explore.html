@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact Gallery</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/explore.css' %}">
+</head>
+
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'about_us' %}">About us</a></li>
+        <li><a href="{% url 'contact_us' %}">Contact us</a></li>
+        <li><a href="{% url 'explore' %}">Gallery</a></li>
+        {% if user.is_authenticated %}
+        <li>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="nav-link btn btn-link">Logout</button>
+            </form>
+        </li>
+        {% else %}
+        <li>
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
+<header>
+    <form method="get" action="{% url 'filter_results' %}">
+        <select name="museum">
+            <option value="" selected>Filter by Museum</option>
+            {% for museum in museums %}
+            <option value="{{ museum.id }}">{{ museum.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="century">
+            <option value="" selected>Filter by Century</option>
+            <option value="2000">21st Century</option>
+            <option value="1900">20th Century</option>
+        </select>
+        <button type="submit">Apply Filters</button>
+    </form>
+</header>
+
+{% block content %}
+<section id="artifactGrid">
+    {% for artifact in artifacts %}
+    <div class="artifactCard">
+        <img src="{{ artifact.image.url }}" alt="{{ artifact.title }}">
+        <p>{{ artifact.title }}</p>
+        <p>Museum: {{ artifact.museum.name }}</p>
+        <p class="title-info" id="title-info-{{ artifact.id }}"></p>
+        <button class="detailsButton" onclick="location.href='{% url 'artifact_details' pk=artifact.id %}'">View Description</button>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
+
+</body>
+
+</html>

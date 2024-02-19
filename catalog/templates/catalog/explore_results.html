@@ -1,0 +1,25 @@
+{% extends 'explore_generic.html' %}
+
+{% block content %}
+<div class="navbar">
+    <ul>
+        {% if century_filter %}
+        <li id="currentCenturyFilter">Current Century Filter: {{ century_filter }}</li>
+        {% endif %}
+    </ul>
+</div>
+
+<h1>Filtered Results</h1>
+
+<section id="artifactGrid">
+    {% for artifact in artifacts %}
+    <div class="artifactCard">
+        <img src="{{ artifact.image.url }}" alt="{{ artifact.title }}">
+        <p>{{ artifact.title }}</p>
+        <p>{{ artifact.museum.name }}</p>
+        <p class="title-info" id="title-info-{{ artifact.id }}"></p>
+        <button class="detailsButton" onclick="location.href='{% url 'artifact_details' pk=artifact.id %}'">View Description</button>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

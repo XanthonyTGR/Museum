@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact Gallery</title>
+    {% load static %}
+    <link rel="stylesheet" href="css/explore.css">
+    </head>
+        <body>
+            <div class="navbar">
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="aboutUs.html">About us</a></li>
+                    <li><a href="contacthere.php">Contact us</a></li>
+                    <li><a href="explore.html">Gallery</a></li>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+            </div>
+
+            <h2>Artifact Details</h2>
+
+            <img id="artifactImage" >
+            <p id="artifactName"></p>
+            <p id="artifactOrigin"></p>
+            <p id="artifactMuseum"></p>
+            <p id="artifactAge"></p>
+        <script>
+            // Parse URL parameters to get artifact details
+            const urlParams = new URLSearchParams(window.location.search);
+            const artifactName = urlParams.get('name');
+            const artifactOrigin = urlParams.get('origin');
+            const artifactMuseum = urlParams.get('museum');
+            const artifactAge = urlParams.get('age');
+            const artifactImage = urlParams.get('image');
+            const artifactDescription = urlParams.get('description');
+
+            // Display artifact details on the details page
+            document.body.innerHTML += `
+                <img src="${artifactImage}" alt="${artifactName}" style="max-width: 100%; height: auto;">
+                <h3>${artifactName}</h3>
+                <p>Origin: ${artifactOrigin}</p>
+                <p>Museum: ${artifactMuseum}</p>
+                <p>Age: ${artifactAge}</p>
+                <p>Description: ${artifactDescription}</p>
+                  `;
+
+            // Add description if available
+           /* if (description) {
+                const descriptionParagraph = document.createElement('p');
+                descriptionParagraph.innerText = 'Description: ' + decodeURIComponent(description);
+                document.body.appendChild(descriptionParagraph);
+            }
+              document.getElementById('artifactImage').src = decodeURIComponent(image);
+            document.getElementById('artifactName').innerText = 'Name: ' + decodeURIComponent(name);
+            document.getElementById('artifactOrigin').innerText = 'Origin: ' + decodeURIComponent(origin);
+            document.getElementById('artifactMuseum').innerText = 'Museum: ' + decodeURIComponent(museum);
+            document.getElementById('artifactAge').innerText = 'Age: ' + decodeURIComponent(age) + ' years';
+*/
+        </script>
+    </body>
+    </html>

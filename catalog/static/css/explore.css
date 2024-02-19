@@ -1,0 +1,146 @@
+*{
+    background-color: antiquewhite;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width: 100%;  
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+.navbar ul li a{
+    color: black;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'' ;
+    height: 3px;
+    width: 100%;
+    background:transparent;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 1s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+    left: 0;
+}
+h1{
+    font-size: 2rem;
+    margin-top: 10px;
+    text-align: center;  
+}
+#artifactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 5fr));
+    gap: 30px;
+}
+.artifactCard {
+    border: 2.5px solid #c9b8a9;
+    padding: 10px;
+    text-align: center;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+#artifactGrid .artifactCard {
+    position: relative;
+    overflow: hidden;
+}
+
+#artifactGrid .artifactCard:hover img {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+
+.artifactDetails {
+    padding: 0px;
+    text-align: center; 
+}
+img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.detailsButton {
+    margin-top: auto;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid #c9b8a9;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+.detailsButton:hover {
+    background-color: #a78e7a;
+    color: white;
+    border-color: #a78e7a;
+}
+.detailsContainer {
+    display: none;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.detailsContainer img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+#searchBar {
+    padding: 10px;
+    border: 2px solid #c9b8a9;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px; /* Set a maximum width if needed */
+}
+
+#searchButton {
+    padding: 10px;
+    background-color: #c9b8a9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#originFilter, #museumFilter, #sortOrder {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    border: 2px solid #c9b8a9;
+    border-radius: 5px;
+}
+#originFilter:hover, #museumFilter:hover, #sortOrder:hover, #searchBar:hover {
+    border-color: #a78e7a;
+}
+#currentCenturyFilter {
+    color: #a78e7a;
+    font-weight: bold;
+}
+.navbar form button.nav-link.btn.btn-link {
+    border: none;
+    font-size: 17px;
+    background: none;
+    padding: 0;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navbar form button.nav-link.btn.btn-link:hover {
+    color: #a78e7a;
+    font-size: 14px;
+}
